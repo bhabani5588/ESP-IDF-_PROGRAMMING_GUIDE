@@ -1,0 +1,22 @@
+my_project/
+│
+├── CMakeLists.txt               ← PROJECT-LEVEL: 3 lines, pulls in all ESP-IDF
+├── sdkconfig                    ← menuconfig output — NEVER edit by hand
+├── sdkconfig.defaults           ← version-controlled config overrides (safe to edit)
+│
+├── main/                        ← The mandatory "main" component
+│   ├── CMakeLists.txt           ← Registers your source files with the build system
+│   └── main.c                   ← app_main() lives here
+│
+├── components/                  ← YOUR reusable components go here (Module 7)
+│   └── my_driver/
+│       ├── CMakeLists.txt
+│       ├── include/
+│       │   └── my_driver.h      ← Public API header
+│       └── my_driver.c          ← Implementation
+│
+└── build/                       ← AUTO-GENERATED. Add to .gitignore. Never touch.
+    ├── hello_world.elf          ← Full debug binary (with symbols)
+    ├── hello_world.bin          ← Stripped flashable binary
+    └── bootloader/
+        └── bootloader.bin       ← The software bootloader (Program 2)
